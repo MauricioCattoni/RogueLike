@@ -6,6 +6,7 @@ from entity import Entity
 from input_handlers import EventHandler
 from procgen import generate_dungeon
 
+
 def main() -> None:
     screen_width = 80
     screen_height = 50
@@ -48,8 +49,11 @@ def main() -> None:
         root_console = tcod.Console(screen_width, screen_height, order="F")
         while True:
             engine.render(console=root_console, context=context)
+
             events = tcod.event.wait()
+
             engine.handle_events(events)
-         
+
+
 if __name__ == "__main__":
     main()

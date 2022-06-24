@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import random
-
 from typing import Iterator, List, Tuple, TYPE_CHECKING
 
 import tcod
@@ -9,8 +8,10 @@ import tcod
 from game_map import GameMap
 import tile_types
 
+
 if TYPE_CHECKING:
     from entity import Entity
+
 
 class RectangularRoom:
     def __init__(self, x: int, y: int, width: int, height: int):
@@ -41,7 +42,6 @@ class RectangularRoom:
         )
 
 
-#Son muy IMPORTANTE la lineas/tabs/indentaciones donde estan. Desde arriba termina la definicion de la clase
 def tunnel_between(
     start: Tuple[int, int], end: Tuple[int, int]
 ) -> Iterator[Tuple[int, int]]:
@@ -60,9 +60,6 @@ def tunnel_between(
         yield x, y
     for x, y in tcod.los.bresenham((corner_x, corner_y), (x2, y2)).tolist():
         yield x, y
-
-
-
 
 
 def generate_dungeon(
