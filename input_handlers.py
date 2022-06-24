@@ -27,4 +27,4 @@ class EventHandler(tcod.event.EventDispatch[Action]):
             action = EscapeAction()
 
         # No valid key was pressed
-        return 
+        return action
