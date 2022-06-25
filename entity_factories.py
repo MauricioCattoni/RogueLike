@@ -9,7 +9,7 @@ from entity import Actor, Item
 player = Actor(
     char="@",
     color=(255, 255, 255),
-    name="Player",
+    name="Jugador",
     ai_cls=HostileEnemy,
     equipment=Equipment(),
     fighter=Fighter(hp=30, base_defense=1, base_power=2),
@@ -19,7 +19,7 @@ player = Actor(
 orc = Actor(
     char="o",
     color=(63, 127, 63),
-    name="Orc",
+    name="Orco",
     ai_cls=HostileEnemy,
     equipment=Equipment(),
     fighter=Fighter(hp=10, base_defense=0, base_power=3),
@@ -39,40 +39,40 @@ troll = Actor(
 health_potion = Item(
     char="!",
     color=(127, 0, 255),
-    name="Health Potion",
+    name="Pocion de salud",
     consumable=consumable.HealingConsumable(amount=4),
 )
 lightning_scroll = Item(
     char="~",
     color=(255, 255, 0),
-    name="Lightning Scroll",
+    name="Pergamino de rayo",
     consumable=consumable.LightningDamageConsumable(damage=20, maximum_range=5),
 )
 confusion_scroll = Item(
     char="~",
     color=(207, 63, 255),
-    name="Confusion Scroll",
+    name="Pergamino de confusion",
     consumable=consumable.ConfusionConsumable(number_of_turns=10),
 )
 fireball_scroll = Item(
     char="~",
     color=(255, 0, 0),
-    name="Fireball Scroll",
+    name="Pergamino de Bola de fuego",
     consumable=consumable.FireballDamageConsumable(damage=12, radius=3),
 )
 dagger = Item(
-    char="/", color=(0, 191, 255), name="Dagger", equippable=equippable.Dagger()
+    char="/", color=(0, 191, 255), name="Daga", equippable=equippable.Dagger()
 )
 
-sword = Item(char="/", color=(0, 191, 255), name="Sword", equippable=equippable.Sword())
+sword = Item(char="/", color=(0, 191, 255), name="Espada", equippable=equippable.Sword())
 
 leather_armor = Item(
     char="[",
     color=(139, 69, 19),
-    name="Leather Armor",
+    name="Armadura de cuero",
     equippable=equippable.LeatherArmor(),
 )
 
 chain_mail = Item(
-    char="[", color=(139, 69, 19), name="Chain Mail", equippable=equippable.ChainMail()
+    char="[", color=(139, 69, 19), name="Armadura de acero", equippable=equippable.ChainMail()
 )

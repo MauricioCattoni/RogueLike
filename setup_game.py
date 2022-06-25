@@ -45,7 +45,7 @@ def new_game() -> Engine:
     engine.update_fov()
 
     engine.message_log.add_message(
-        "Hello and welcome, adventurer, to yet another dungeon!", color.welcome_text
+        "Bienvenido a las mazmorras animal, mucha suerte. Kiricocho!!", color.welcome_text
     )
     dagger = copy.deepcopy(entity_factories.dagger)
     leather_armor = copy.deepcopy(entity_factories.leather_armor)
@@ -78,7 +78,7 @@ class MainMenu(input_handlers.BaseEventHandler):
         console.print(
             console.width // 2,
             console.height // 2 - 4,
-            "Las Catacumbas del Monasterio",
+            "Primer RogueLike",
             fg=color.menu_title,
             alignment=tcod.CENTER,
         )
@@ -92,7 +92,7 @@ class MainMenu(input_handlers.BaseEventHandler):
 
         menu_width = 24
         for i, text in enumerate(
-            ["[N] Play a new game", "[C] Continue last game", "[Q] Quit"]
+            ["[N] Nueva Partida", "[C] Continuar Partida", "[Q] Salir"]
         ):
             console.print(
                 console.width // 2,
@@ -113,10 +113,10 @@ class MainMenu(input_handlers.BaseEventHandler):
             try:
                 return input_handlers.MainGameEventHandler(load_game("savegame.sav"))
             except FileNotFoundError:
-                return input_handlers.PopupMessage(self, "No saved game to load.")
+                return input_handlers.PopupMessage(self, "No hay partida guardada.")
             except Exception as exc:
                 traceback.print_exc()  # Print to stderr.
-                return input_handlers.PopupMessage(self, f"Failed to load save:\n{exc}")
+                return input_handlers.PopupMessage(self, f"Fallo al cargar la partida guardada:\n{exc}")
   
         elif event.sym == tcod.event.K_n:
             return input_handlers.MainGameEventHandler(new_game())
